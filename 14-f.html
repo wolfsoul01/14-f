@@ -1,0 +1,206 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/water.css@2/out/dark.css">
+    <title>El BAKO 😎 fachero</title>
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <style>
+        .app {
+            font-family: Arial, sans-serif;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            height: 90vh;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .container {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+
+        }
+
+        button {
+            padding: 10px 20px;
+            font-size: 16px;
+            margin: 0 10px;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+
+        #content {
+            display: none;
+            background-color: #202B38;
+            padding: 20px;
+            margin-top: 20px;
+            max-width: 500px;
+            border-radius: 5px;
+            box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+            position: fixed;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            z-index: 999;
+            font-size: 22px;
+        }
+
+        .header {
+            text-align: center;
+            display: block;
+            margin-bottom: 20px;
+            font-size: 20px;
+        }
+
+        #closeButton {
+            background-color: #ad3131;
+            border: none;
+            border-radius: 100%;
+            color: #ffffff;
+            font-size: 16px;
+            cursor: pointer;
+            position: absolute;
+            top: 0px;
+            right: 10px;
+            padding: 4px;
+
+        }
+
+        .subtitle {
+            font-size: 32px;
+            text-align: center;
+            display: block;
+            margin-bottom: 20px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="app">
+        <div>
+            <div class="header">Solo quiero recordarte lo mucho que me caes mal (TE AMO) y lo molesta que eres
+                (agradecido que estoy por tenerte en mi vida).
+                Eres
+                mi dolor de cabeza (Felicidad).
+
+
+            </div>
+            <span class="subtitle">¿Aceptas vivir toda tu vida conmigo? te vas pa la pi 🖕</span>
+            <div class="container">
+                <button id="acceptButton">Si</button>
+                <button id="rejectButton">No</button>
+            </div>
+        </div>
+
+        <footer class="">Atentamente - El bako❤️ anónimo😎 nunca descubrieran mi identidad secreta </footer>
+    </div>
+    <script>
+        const acceptButton = document.getElementById('acceptButton');
+        const rejectButton = document.getElementById('rejectButton');
+        const app = document.querySelector(".app")
+
+        acceptButton.addEventListener('click', () => {
+
+
+            setInterval(()=>  showConfeti() , 3000)
+           
+            Swal.fire({
+                icon: 'success',
+                title: 'Decision correcta pendeja',
+                text: 'Sabía que dirías que sí! 😁😘😏 Felicidadeeeees!❤️❤️❤️',
+                confirmButtonColor: '#3085d6',
+                confirmButtonText: 'Si papi lo que usted diga foto chichi para usted todos los días🫡. '
+            });
+
+            //app.style.display= "none"
+            app.innerHTML = 'Dijiste que si, ya te puedes ir al carajo amor😘.🖕';
+        });
+
+        let acceptButtonSize = 16;
+        let clicks = 0
+
+        rejectButton.addEventListener('click', () => {
+
+            clicks++
+
+            if (clicks > 10) {
+                setInterval(() => {
+                    Swal.fire({
+                        icon: 'error',
+                        title: '',
+                        text: 'No ahora te vas pa la pi 😡😡',
+                        confirmButtonColor: '#3085d6',
+                    });
+                }, 100)
+            }
+
+            if (clicks > 2) {
+                Swal.fire({
+                    icon: 'error',
+                    title: 'Que te pasa comepi',
+                    text: 'Oye dale que si anormal que pinga te pasa anda 😡😡',
+                    confirmButtonColor: '#3085d6',
+                    confirmButtonText: 'Si ya le doy papi hermoso🫡.'
+                });
+            }
+
+
+
+
+            const randomX = Math.floor(Math.random() * (window.innerWidth - rejectButton.offsetWidth));
+            const randomY = Math.floor(Math.random() * (window.innerHeight - rejectButton.offsetHeight));
+            rejectButton.style.position = 'absolute';
+            rejectButton.style.left = `${randomX}px`;
+            rejectButton.style.top = `${randomY}px`;
+
+            acceptButtonSize += 12;
+            acceptButton.style.fontSize = `${acceptButtonSize}px`;
+        });
+
+
+
+
+    </script>
+    <script src="https://cdn.jsdelivr.net/npm/@tsparticles/confetti@3.0.3/tsparticles.confetti.bundle.min.js"></script>
+    <script>
+        function showConfeti() {
+
+            const defaults = {
+                spread: 360,
+                ticks: 100,
+                gravity: 0,
+                decay: 0.94,
+                startVelocity: 30,
+                shapes: ["heart"],
+                colors: ["FFC0CB", "FF69B4", "FF1493", "C71585"],
+            };
+
+            confetti({
+                ...defaults,
+                particleCount: 50,
+                scalar: 2,
+            });
+
+            confetti({
+                ...defaults,
+                particleCount: 25,
+                scalar: 3,
+            });
+
+            confetti({
+                ...defaults,
+                particleCount: 10,
+                scalar: 4,
+            });
+        }
+
+    </script>
+</body>
+
+</html>
